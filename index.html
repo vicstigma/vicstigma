@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid with Justify Items</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+
+html,body{
+  height: 100%;
+}
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+header{
+  height: 50px;
+  width: 100%;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+header h1{
+  color: white;
+  font-size: 25px;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+nav a{
+  color: white;
+  text-decoration: none;
+}
+nav{
+  width: 380px;
+}
+nav span{
+  display: flex;
+  align-items: center;
+}
+span p{
+  margin-right: 3px;
+}
+header button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: none;
+}
+.content button{
+    background-color: transparent;
+    border: none;
+  }
+.drop-down{
+  position: absolute;
+  width: 80px;
+  height: 0;
+  overflow: hidden;
+  top: 30px;
+  background-color: white;
+  transition: height .5s ease-out;
+  box-shadow: 2px 2px 3px gray;
+}
+.drop-down-content a{
+  color:black;
+}
+.drop-down-content{
+  padding: 5px;
+}
+.drop-down-content ul{
+  display: flex;
+  flex-direction: column;
+  gap:3px;
+}
+.drop-down-list{
+  position: relative;
+}
+.drop-down-list:hover .drop-down{
+  height: 60px;
+}
+@media (max-width: 600px){
+  header button{
+    display: block;
+  }
+
+  header nav{
+    display: none;
+  }
+ 
+  #side-bar{
+    width: 0;
+    background-color: black;
+    opacity: .8;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    transition: width .5s linear;
+    overflow: hidden;
+  }
+ .is-open{
+  width: 80% !important;
+ }
+  .content button{
+    background-color: transparent;
+    border: none;
+  }
+  .content{
+    padding: 15px;
+    overflow: hidden;
+  }
+}
+@media (min-width:600px) and (max-width:768px){
+  body{
+    background-color: green;
+  }
+}
+@media (min-width:768px) and (max-width:1024px){
+  body{
+    background-color: pink;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spike Automobile</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li class="drop-down-list">
+       <span>
+        <p>Account</p> 
+        <i style="font-size: 10px;"  class="fas fa-chevron-down"></i>
+       </span>
+        <div class="drop-down">
+            <div class="drop-down-content">
+                <ul>
+                  <li><a href="">Login</a></li>
+                  <li><a href="">Sign up</a></li>
+                </ul>
+            </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <button id="menu-btn">
+    <i style="font-size: 20px;" class="fas fa-bars"></i>
+  </button>  
+</header>
+
+
+<div id="side-bar">
+   <div class="content">
+     <button id="close-btn">
+      <i style="color: white; font-size: 20px;" class="fas fa-times"></i>
+    </button>
+   </div>
+</div>
+
+
+
+<script src="/css/script.js" ></script>
+</body>
+</html>
